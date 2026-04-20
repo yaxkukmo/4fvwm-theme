@@ -1,4 +1,4 @@
-# 4fvm Version 1.3
+# 4fvm Version 1.4
 # by Yaxkukmo
 #################
 # Image path 
@@ -159,9 +159,7 @@ Mouse 1 T A Function 4dwmMaximize
 # setting Icons
 #################
 #
-Style * SnapGrid 1
 BugOpts RaiseOverUnmanaged on
-EdgeScroll 0 0
 EdgeResistance 200
 EdgeThickness 1
 Style * IconTitleFormat %i
@@ -277,7 +275,7 @@ DestroyModuleConfig FvwmPager: *
 
 DestroyModuleConfig FvwmBanner: *
 *FvwmBanner: NoDecor
-*FvwmBanner: Pixmap /home/yaxkukmo/.fvwm/sgi_logo.xpm
+*FvwmBanner: Pixmap $[HOME]/.fvwm/sgi_logo.xpm
 
 #
 #  Getting toolchest 
@@ -308,7 +306,7 @@ AddToMenu "ToolDesktop"
 DestroyMenu "ToolCustomize"
 AddToMenu "ToolCustomize" 
 + "Background Color" 	Popup ToolDesktopBg
-+ "Edit Config File" 	Exec exec urxvt +ls -name Winterm -n Config -e vi ~/.fvwm2rc
++ "Edit Config File" 	Exec exec urxvt +ls -name Winterm -n Config -e vi ~/.fvwm/fvwmrc
 + "Edit XResources File" Exec exec urxvt +ls -name Winterm -n Xresources -e vi ~/.Xdefaults
 + "Apply XResources" 	Exec exec xrdb ~/.Xdefaults
 
@@ -395,8 +393,13 @@ Key 3 A M GoToPage 2 0
 Key 4 A M GoToPage 3 0
 Key Left A M Scroll -100 0
 Key Right A M Scroll +100 +0
-Silent Key XF86AudioRaiseVolume A A Exec exec pactl set-sink-volume 0 +10%
-Silent Key XF86AudioLowerVolume A A Exec exec pactl set-sink-volume 0 -10%
+Silent Key XF86AudioRaiseVolume  A A Exec exec pactl set-sink-volume 0 +10%
+Silent Key XF86AudioLowerVolume  A A Exec exec pactl set-sink-volume 0 -10%
+Silent Key XF86AudioMute         A A Exec exec pactl set-sink-mute 0 toggle
+Silent Key XF86MonBrightnessUp   A A Exec exec xbacklight -inc 10
+Silent Key XF86MonBrightnessDown A A Exec exec xbacklight -dec 10
+Key Print A A Exec exec scrot $[HOME]/screenshot-%Y%m%d-%H%M%S.png
+Key L A CM Exec exec xlock
 
 #
 # start additional applications and fvwm modoules
