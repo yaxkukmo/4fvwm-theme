@@ -1,5 +1,7 @@
 # 4fvwm-theme
 
+![Screenshot](cs.png)
+
 A personal FVWM window manager configuration inspired by the classic SGI IRIX 4Dwm look and feel. This config is almost 20 years old and has been refined over the years to keep the retro SGI aesthetic alive on modern Linux systems.
 
 ## Features
